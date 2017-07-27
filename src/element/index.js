@@ -26,6 +26,36 @@
   import wxaCanvas from './canvas.js';
   import wxaOpenData from './open-data.js';
   import wxaContactButton from './contact-button.js';
+  var eles = Object.keys({
+      'view': true,
+      'scroll-view': true,
+      'swiper': true,
+      'movable-view': true,
+      'cover-view': true,
+      'icon': true,
+      'text': true,
+      'rich-text': true,
+      'progress': true,
+      'button': true,
+      'checkbox': true,
+      'form': true,
+      'input': true,
+      'label': true,
+      'picker': true,
+      'picker-view': true,
+      'radio': true,
+      'slider': true,
+      'switch': true,
+      'textarea': true,
+      'navigator': true,
+      'audio': true,
+      'image': true,
+      'video': true,
+      'map': true,
+      'canvas': true,
+      'open-data': true,
+      'contact-button': true,
+  });
   export default {
       wxaView,
       wxaScrollView,
@@ -55,4 +85,5 @@
       wxaCanvas,
       wxaOpenData,
       wxaContactButton,
+      elements: eles
   }
