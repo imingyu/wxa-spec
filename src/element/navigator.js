@@ -1,5 +1,5 @@
 import * as util from '../common/util.js';
-import createElement from './createElement.js';
+import createElement from '../common/createElement.js';
 import types from '../common/types.js';
 export default createElement({
     "name": "navigator",
@@ -12,7 +12,28 @@ export default createElement({
         "name": "open-type",
         "type": types.String,
         "default": "navigate",
-        "desc": "跳转方式"
+        "desc": "跳转方式",
+        "values": [{
+            "value": "navigate",
+            "desc": "对应 wx.navigateTo 的功能",
+            "minVersion": ""
+        }, {
+            "value": "redirect",
+            "desc": "对应 wx.redirectTo 的功能",
+            "minVersion": ""
+        }, {
+            "value": "switchTab",
+            "desc": "对应 wx.switchTab 的功能",
+            "minVersion": ""
+        }, {
+            "value": "reLaunch",
+            "desc": "对应 wx.reLaunch 的功能",
+            "minVersion": "1.1.0"
+        }, {
+            "value": "navigateBack",
+            "desc": "对应 wx.navigateBack 的功能",
+            "minVersion": "1.1.0"
+        }]
     }, {
         "name": "delta",
         "type": types.Number,

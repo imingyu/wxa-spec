@@ -2,7 +2,7 @@ import * as util from '../common/util.js';
 import createElement from '../common/createElement.js';
 import types from '../common/types.js';
 export default createElement({
-    "name": "movable-view",
+    "name": "movable-area",
     "desc": "可移动的视图容器，在页面中可以拖拽滑动",
     "props": [{
         "name": "direction",

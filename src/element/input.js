@@ -1,5 +1,5 @@
 import * as util from '../common/util.js';
-import createElement from './createElement.js';
+import createElement from '../common/createElement.js';
 import types from '../common/types.js';
 export default createElement({
     "name": "input",
@@ -12,7 +12,20 @@ export default createElement({
         "name": "type",
         "type": types.String,
         "default": "\"text\"",
-        "desc": "input 的类型"
+        "desc": "input 的类型",
+        "values": [{
+            "value": "text",
+            "desc": "文本输入键盘"
+        }, {
+            "value": "number",
+            "desc": "数字输入键盘"
+        }, {
+            "value": "idcard",
+            "desc": "身份证输入键盘"
+        }, {
+            "value": "digit",
+            "desc": "带小数点的数字键盘"
+        }]
     }, {
         "name": "password",
         "type": types.Boolean,
@@ -61,7 +74,23 @@ export default createElement({
         "type": types.String,
         "default": "\"done\"",
         "desc": "设置键盘右下角按钮的文字",
-        "minVersion": "1.1.0"
+        "minVersion": "1.1.0",
+        "values": [{
+            "value": "send",
+            "desc": "右下角按钮为“发送”"
+        }, {
+            "value": "search",
+            "desc": "右下角按钮为“搜索”"
+        }, {
+            "value": "next",
+            "desc": "右下角按钮为“下一个”"
+        }, {
+            "value": "go",
+            "desc": "右下角按钮为“前往”"
+        }, {
+            "value": "done",
+            "desc": "右下角按钮为“完成”"
+        }]
     }, {
         "name": "confirm-hold",
         "type": types.Boolean,
@@ -73,24 +102,28 @@ export default createElement({
         "input": {
             "name": "input",
             "type": "input",
+            "desc": "当键盘输入时，触发input事件，event.detail = {value: value}，处理函数可以直接 return 一个字符串，将替换输入框的内容。",
             "bindable": true,
             "catchable": false
         },
         "focus": {
             "name": "focus",
             "type": "focus",
+            "desc": "输入框聚焦时触发，event.detail = {value: value}",
             "bindable": true,
             "catchable": false
         },
         "blur": {
             "name": "blur",
             "type": "blur",
+            "desc": "输入框失去焦点时触发，event.detail = {value: value}",
             "bindable": true,
             "catchable": false
         },
         "confirm": {
             "name": "confirm",
             "type": "confirm",
+            "desc": "点击完成按钮时触发，event.detail = {value: value}",
             "bindable": true,
             "catchable": false
         }

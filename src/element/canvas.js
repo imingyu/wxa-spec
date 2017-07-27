@@ -1,5 +1,5 @@
 import * as util from '../common/util.js';
-import createElement from './createElement.js';
+import createElement from '../common/createElement.js';
 import types from '../common/types.js';
 export default createElement({
     "name": "canvas",
@@ -18,36 +18,42 @@ export default createElement({
         "touchstart": {
             "name": "touchstart",
             "type": "touchstart",
+            "desc": "手指触摸动作开始",
             "bindable": true,
             "catchable": false
         },
         "touchmove": {
             "name": "touchmove",
             "type": "touchmove",
+            "desc": "手指触摸后移动",
             "bindable": true,
             "catchable": false
         },
         "touchend": {
             "name": "touchend",
             "type": "touchend",
+            "desc": "手指触摸动作结束",
             "bindable": true,
             "catchable": false
         },
         "touchcancel": {
             "name": "touchcancel",
             "type": "touchcancel",
+            "desc": "手指触摸动作被打断，如来电提醒，弹窗",
             "bindable": true,
             "catchable": false
         },
         "longtap": {
             "name": "longtap",
             "type": "longtap",
+            "desc": "手指长按 500ms 之后触发，触发了长按事件后进行移动不会触发屏幕的滚动",
             "bindable": true,
             "catchable": false
         },
         "error": {
             "name": "error",
             "type": "error",
+            "desc": "当发生错误时触发 error 事件，detail = {errMsg: 'something wrong'}",
             "bindable": true,
             "catchable": false
         }

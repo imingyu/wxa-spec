@@ -1,5 +1,5 @@
-import * as util from '../util.js';
-import types from '../types.js';
+import * as util from './util.js';
+import types from './types.js';
 
 export default [
     {

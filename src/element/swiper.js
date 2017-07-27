@@ -1,5 +1,5 @@
 import * as util from '../common/util.js';
-import createElement from './createElement.js';
+import createElement from '../common/createElement.js';
 import types from '../common/types.js';
 export default createElement({
     "name": "swiper",
@@ -56,6 +56,7 @@ export default createElement({
         "change": {
             "name": "change",
             "type": "change",
+            "desc": "current 改变时会触发 change 事件，event.detail = {current: current, source: source}",
             "bindable": true,
             "catchable": false
         }

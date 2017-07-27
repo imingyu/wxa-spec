@@ -1,5 +1,5 @@
 import * as util from '../common/util.js';
-import createElement from './createElement.js';
+import createElement from '../common/createElement.js';
 import types from '../common/types.js';
 export default createElement({
     "name": "text",
@@ -15,7 +15,17 @@ export default createElement({
         "type": types.String,
         "default": false,
         "desc": "显示连续空格",
-        "minVersion": "1.4.0"
+        "minVersion": "1.4.0",
+        "values": [{
+            "value": "ensp",
+            "desc": "中文字符空格一半大小"
+        }, {
+            "value": "emsp",
+            "desc": "中文字符空格大小"
+        }, {
+            "value": "nbsp",
+            "desc": "根据字体设置的空格大小"
+        }]
     }, {
         "name": "decode",
         "type": types.Boolean,

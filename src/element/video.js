@@ -1,5 +1,5 @@
 import * as util from '../common/util.js';
-import createElement from './createElement.js';
+import createElement from '../common/createElement.js';
 import types from '../common/types.js';
 export default createElement({
     "name": "video",
@@ -63,30 +63,35 @@ export default createElement({
         "play": {
             "name": "play",
             "type": "play",
+            "desc": "当开始/继续播放时触发play事件",
             "bindable": true,
             "catchable": false
         },
         "pause": {
             "name": "pause",
             "type": "pause",
+            "desc": "当暂停播放时触发 pause 事件",
             "bindable": true,
             "catchable": false
         },
         "ended": {
             "name": "ended",
             "type": "ended",
+            "desc": "当播放到末尾时触发 ended 事件",
             "bindable": true,
             "catchable": false
         },
         "timeupdate": {
             "name": "timeupdate",
             "type": "timeupdate",
+            "desc": "播放进度变化时触发，event.detail = {currentTime: '当前播放时间'} 。触发频率应该在 250ms 一次",
             "bindable": true,
             "catchable": false
         },
         "fullscreenchange": {
             "name": "fullscreenchange",
             "type": "fullscreenchange",
+            "desc": "当视频进入和退出全屏是触发，event.detail = {fullScreen: '当前全屏状态'}",
             "bindable": true,
             "catchable": false
         }

@@ -1,89 +1,107 @@
-  import wxaView from './view.js';
-  import wxaScrollView from './scroll-view.js';
-  import wxaSwiper from './swiper.js';
-  import wxaMovableView from './movable-view.js';
-  import wxaCoverView from './cover-view.js';
-  import wxaIcon from './icon.js';
-  import wxaText from './text.js';
-  import wxaRichText from './rich-text.js';
-  import wxaProgress from './progress.js';
-  import wxaButton from './button.js';
-  import wxaCheckbox from './checkbox.js';
-  import wxaForm from './form.js';
-  import wxaInput from './input.js';
-  import wxaLabel from './label.js';
-  import wxaPicker from './picker.js';
-  import wxaPickerView from './picker-view.js';
-  import wxaRadio from './radio.js';
-  import wxaSlider from './slider.js';
-  import wxaSwitch from './switch.js';
-  import wxaTextarea from './textarea.js';
-  import wxaNavigator from './navigator.js';
-  import wxaAudio from './audio.js';
-  import wxaImage from './image.js';
-  import wxaVideo from './video.js';
-  import wxaMap from './map.js';
-  import wxaCanvas from './canvas.js';
-  import wxaOpenData from './open-data.js';
   import wxaContactButton from './contact-button.js';
+  import wxaOpenData from './open-data.js';
+  import wxaCanvas from './canvas.js';
+  import wxaMap from './map.js';
+  import wxaVideo from './video.js';
+  import wxaImage from './image.js';
+  import wxaAudio from './audio.js';
+  import wxaNavigator from './navigator.js';
+  import wxaTextarea from './textarea.js';
+  import wxaSwitch from './switch.js';
+  import wxaSlider from './slider.js';
+  import wxaRadioGroup from './radio-group.js';
+  import wxaRadio from './radio.js';
+  import wxaPickerView from './picker-view.js';
+  import wxaPickerViewColumn from './picker-view-column.js';
+  import wxaPicker from './picker.js';
+  import wxaLabel from './label.js';
+  import wxaInput from './input.js';
+  import wxaForm from './form.js';
+  import wxaCheckboxGroup from './checkbox-group.js';
+  import wxaCheckbox from './checkbox.js';
+  import wxaButton from './button.js';
+  import wxaProgress from './progress.js';
+  import wxaRichText from './rich-text.js';
+  import wxaText from './text.js';
+  import wxaIcon from './icon.js';
+  import wxaCoverView from './cover-view.js';
+  import wxaCoverImage from './cover-image.js';
+  import wxaMovableArea from './movable-area.js';
+  import wxaMovableView from './movable-view.js';
+  import wxaSwiper from './swiper.js';
+  import wxaSwiperItem from './swiper-item.js';
+  import wxaScrollView from './scroll-view.js';
+  import wxaView from './view.js';
   var eles = Object.keys({
-      'view': true,
-      'scroll-view': true,
-      'swiper': true,
-      'movable-view': true,
-      'cover-view': true,
-      'icon': true,
-      'text': true,
-      'rich-text': true,
-      'progress': true,
-      'button': true,
-      'checkbox': true,
-      'form': true,
-      'input': true,
-      'label': true,
-      'picker': true,
-      'picker-view': true,
-      'radio': true,
-      'slider': true,
-      'switch': true,
-      'textarea': true,
-      'navigator': true,
-      'audio': true,
-      'image': true,
-      'video': true,
-      'map': true,
-      'canvas': true,
-      'open-data': true,
       'contact-button': true,
+      'open-data': true,
+      'canvas': true,
+      'map': true,
+      'video': true,
+      'image': true,
+      'audio': true,
+      'navigator': true,
+      'textarea': true,
+      'switch': true,
+      'slider': true,
+      'radio-group': true,
+      'radio': true,
+      'picker-view': true,
+      'picker-view-column': true,
+      'picker': true,
+      'label': true,
+      'input': true,
+      'form': true,
+      'checkbox-group': true,
+      'checkbox': true,
+      'button': true,
+      'progress': true,
+      'rich-text': true,
+      'text': true,
+      'icon': true,
+      'cover-view': true,
+      'cover-image': true,
+      'movable-area': true,
+      'movable-view': true,
+      'swiper': true,
+      'swiper-item': true,
+      'scroll-view': true,
+      'view': true,
   });
   export default {
-      wxaView,
-      wxaScrollView,
-      wxaSwiper,
-      wxaMovableView,
-      wxaCoverView,
-      wxaIcon,
-      wxaText,
-      wxaRichText,
-      wxaProgress,
-      wxaButton,
-      wxaCheckbox,
-      wxaForm,
-      wxaInput,
-      wxaLabel,
-      wxaPicker,
-      wxaPickerView,
-      wxaRadio,
-      wxaSlider,
-      wxaSwitch,
-      wxaTextarea,
-      wxaNavigator,
-      wxaAudio,
-      wxaImage,
-      wxaVideo,
-      wxaMap,
-      wxaCanvas,
-      wxaOpenData,
       wxaContactButton,
+      wxaOpenData,
+      wxaCanvas,
+      wxaMap,
+      wxaVideo,
+      wxaImage,
+      wxaAudio,
+      wxaNavigator,
+      wxaTextarea,
+      wxaSwitch,
+      wxaSlider,
+      wxaRadioGroup,
+      wxaRadio,
+      wxaPickerView,
+      wxaPickerViewColumn,
+      wxaPicker,
+      wxaLabel,
+      wxaInput,
+      wxaForm,
+      wxaCheckboxGroup,
+      wxaCheckbox,
+      wxaButton,
+      wxaProgress,
+      wxaRichText,
+      wxaText,
+      wxaIcon,
+      wxaCoverView,
+      wxaCoverImage,
+      wxaMovableArea,
+      wxaMovableView,
+      wxaSwiper,
+      wxaSwiperItem,
+      wxaScrollView,
+      wxaView,
       elements: eles
   }

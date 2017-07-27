@@ -1,5 +1,5 @@
-import * as util from '../util.js';
-import types from '../types.js';
+import * as util from './util.js';
+import types from './types.js';
 import nativeProps from './native.js';
 import baseProps from './base.js';
 import baseEvents from './base-event.js';

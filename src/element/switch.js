@@ -1,5 +1,5 @@
 import * as util from '../common/util.js';
-import createElement from './createElement.js';
+import createElement from '../common/createElement.js';
 import types from '../common/types.js';
 export default createElement({
     "name": "switch",
@@ -23,6 +23,7 @@ export default createElement({
         "change": {
             "name": "change",
             "type": "change",
+            "desc": "checked 改变时触发 change 事件，event.detail={ value:checked}",
             "bindable": true,
             "catchable": false
         }

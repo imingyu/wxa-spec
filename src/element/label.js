@@ -1,9 +1,9 @@
 import * as util from '../common/util.js';
-import createElement from './createElement.js';
+import createElement from '../common/createElement.js';
 import types from '../common/types.js';
 export default createElement({
     "name": "label",
-    "desc": "用来改进表单组件的可用性，使用for属性找到对应的id，或者将控件放在该标签下，当点击时，就会触发对应的控件。",
+    "desc": "目前可以绑定的控件有：<button/>, <checkbox/>, <radio/>, <switch/>。",
     "props": [{
         "name": "for",
         "type": types.String,

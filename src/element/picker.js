@@ -1,9 +1,9 @@
 import * as util from '../common/util.js';
-import createElement from './createElement.js';
+import createElement from '../common/createElement.js';
 import types from '../common/types.js';
 export default createElement({
     "name": "picker",
-    "desc": "从底部弹起的滚动选择器，现支持五种选择器，通过mode来区分，分别是普通选择器，多列选择器，时间选择器，日期选择器，省市区选择器，默认是普通选择器。",
+    "desc": "普通选择器：mode = selector",
     "props": [{
         "name": "range",
         "type": "Array / Object Array",
@@ -28,6 +28,7 @@ export default createElement({
         "change": {
             "name": "change",
             "type": "change",
+            "desc": "value 改变时触发 change 事件，event.detail = {value: value}",
             "bindable": true,
             "catchable": false
         }

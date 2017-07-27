@@ -1,5 +1,5 @@
 import * as util from '../common/util.js';
-import createElement from './createElement.js';
+import createElement from '../common/createElement.js';
 import types from '../common/types.js';
 export default createElement({
     "name": "scroll-view",
@@ -51,18 +51,21 @@ export default createElement({
         "scrolltoupper": {
             "name": "scrolltoupper",
             "type": "scrolltoupper",
+            "desc": "滚动到顶部/左边，会触发 scrolltoupper 事件",
             "bindable": true,
             "catchable": false
         },
         "scrolltolower": {
             "name": "scrolltolower",
             "type": "scrolltolower",
+            "desc": "滚动到底部/右边，会触发 scrolltolower 事件",
             "bindable": true,
             "catchable": false
         },
         "scroll": {
             "name": "scroll",
             "type": "scroll",
+            "desc": "滚动时触发，event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY}",
             "bindable": true,
             "catchable": false
         }

@@ -1,5 +1,5 @@
 import * as util from '../common/util.js';
-import createElement from './createElement.js';
+import createElement from '../common/createElement.js';
 import types from '../common/types.js';
 export default createElement({
     "name": "contact-button",
@@ -13,7 +13,13 @@ export default createElement({
         "name": "type",
         "type": types.String,
         "default": "default-dark",
-        "desc": "会话按钮的样式类型"
+        "desc": "会话按钮的样式类型",
+        "values": [{
+            "value": "default-dark",
+            "desc": ""
+        }, {
+            "value": "default-light"
+        }]
     }, {
         "name": "session-from",
         "type": types.String,

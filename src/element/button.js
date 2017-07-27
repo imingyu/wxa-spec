@@ -1,5 +1,5 @@
 import * as util from '../common/util.js';
-import createElement from './createElement.js';
+import createElement from '../common/createElement.js';
 import types from '../common/types.js';
 export default createElement({
     "name": "button",
@@ -8,12 +8,27 @@ export default createElement({
         "name": "size",
         "type": types.String,
         "default": "default",
-        "desc": "按钮的大小"
+        "desc": "按钮的大小",
+        "values": [{
+            "value": "default",
+            "desc": ""
+        }, {
+            "value": "mini"
+        }]
     }, {
         "name": "type",
         "type": types.String,
         "default": "default",
-        "desc": "按钮的样式类型"
+        "desc": "按钮的样式类型",
+        "values": [{
+            "value": "primary",
+            "desc": ""
+        }, {
+            "value": "default",
+            "desc": ""
+        }, {
+            "value": "warn"
+        }]
     }, {
         "name": "plain",
         "type": types.Boolean,
@@ -32,12 +47,32 @@ export default createElement({
     }, {
         "name": "form-type",
         "type": types.String,
-        "desc": "用于 <form/> 组件，点击分别会触发 <form/> 组件的 submit/reset 事件"
+        "desc": "用于 <form/> 组件，点击分别会触发 <form/> 组件的 submit/reset 事件",
+        "values": [{
+            "value": "submit",
+            "desc": "提交表单"
+        }, {
+            "value": "reset",
+            "desc": "重置表单"
+        }]
     }, {
         "name": "open-type",
         "type": types.String,
         "desc": "微信开放能力",
-        "minVersion": "1.1.0"
+        "minVersion": "1.1.0",
+        "values": [{
+            "value": "contact",
+            "desc": "打开客服会话",
+            "minVersion": "1.1.0"
+        }, {
+            "value": "share",
+            "desc": "触发用户转发，使用前建议先阅读使用指引",
+            "minVersion": "1.2.0"
+        }, {
+            "value": "getUserInfo",
+            "desc": "获取用户信息，可以从bindgetuserinfo回调中获取到用户信息",
+            "minVersion": "1.3.0"
+        }]
     }, {
         "name": "hover-class",
         "type": types.String,
@@ -63,6 +98,7 @@ export default createElement({
         "getuserinfo": {
             "name": "getuserinfo",
             "type": "getuserinfo",
+            "desc": "open-type=\"getUserInfo\"时有效：用户点击该按钮时，会返回获取到的用户信息，从返回参数的detail中获取到的值同wx.getUserInfo",
             "bindable": true,
             "catchable": false
         }

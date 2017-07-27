@@ -1,5 +1,5 @@
 import * as util from '../common/util.js';
-import createElement from './createElement.js';
+import createElement from '../common/createElement.js';
 import types from '../common/types.js';
 export default createElement({
     "name": "textarea",
@@ -61,30 +61,35 @@ export default createElement({
         "focus": {
             "name": "focus",
             "type": "focus",
+            "desc": "输入框聚焦时触发，event.detail = {value: value}",
             "bindable": true,
             "catchable": false
         },
         "blur": {
             "name": "blur",
             "type": "blur",
+            "desc": "输入框失去焦点时触发，event.detail = {value: value}",
             "bindable": true,
             "catchable": false
         },
         "linechange": {
             "name": "linechange",
             "type": "linechange",
+            "desc": "输入框行数变化时调用，event.detail = {height: 0, heightRpx: 0, lineCount: 0}",
             "bindable": true,
             "catchable": false
         },
         "input": {
             "name": "input",
             "type": "input",
+            "desc": "当键盘输入时，触发 input 事件，event.detail = {value: value}， bindinput 处理函数的返回值并不会反映到 textarea 上 ",
             "bindable": true,
             "catchable": false
         },
         "confirm": {
             "name": "confirm",
             "type": "confirm",
+            "desc": "点击完成时， 触发 confirm 事件，event.detail = {value: value}",
             "bindable": true,
             "catchable": false
         }

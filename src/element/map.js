@@ -1,5 +1,5 @@
 import * as util from '../common/util.js';
-import createElement from './createElement.js';
+import createElement from '../common/createElement.js';
 import types from '../common/types.js';
 export default createElement({
     "name": "map",
@@ -50,30 +50,35 @@ export default createElement({
         "markertap": {
             "name": "markertap",
             "type": "markertap",
+            "desc": "点击标记点时触发",
             "bindable": true,
             "catchable": false
         },
         "callouttap": {
             "name": "callouttap",
             "type": "callouttap",
+            "desc": "点击标记点对应的气泡时触发",
             "bindable": true,
             "catchable": false
         },
         "controltap": {
             "name": "controltap",
             "type": "controltap",
+            "desc": "点击控件时触发",
             "bindable": true,
             "catchable": false
         },
         "regionchange": {
             "name": "regionchange",
             "type": "regionchange",
+            "desc": "视野发生变化时触发",
             "bindable": true,
             "catchable": false
         },
         "tap": {
             "name": "tap",
             "type": "tap",
+            "desc": "点击地图时触发",
             "bindable": true,
             "catchable": false
         }

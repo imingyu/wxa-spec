@@ -40,7 +40,7 @@ function getElementDocUrls(html, baseUrl) {
     return docs;
 }
 
-function parseDetailPage(tagName, url) {
+function parseDetailPage(url) {
     console.log(`loading... ${url}`);
     return axios.get(url).then(res => {
         return res.data;
@@ -49,15 +49,20 @@ function parseDetailPage(tagName, url) {
             $ = jquery(dom.window),
             data = [];
 
-        $('h4#' + tagName).each((i, h4) => {
+        $('h4[id]').each((i, h4) => {
             h4 = $(h4);
 
             var spec = {},
-                trs = h4.nextAll('table').first().find('tbody>tr');
-            spec.name = tagName;
-            spec.desc = h4.next('p').text();
+                table = h4.nextAll('table').first(),
+                p = table.prev('p'),
+                trs = table.find('tbody>tr');
+            spec.name = h4.text();
+            spec.desc = p.text();
             spec.props = [];
             spec.events = {};
+            if (spec.name == 'Bug & Tip' || spec.name == 'Tips') {
+                return;
+            }
 
             trs.each((ti, tr) => {
                 tr = $(tr);
@@ -69,6 +74,9 @@ function parseDetailPage(tagName, url) {
                     desc: $(tds[3]).text(),
                     minVersion: tds.length > 4 ? $(tds[4]).text() : undefined,
                 };
+                if (val.name.trim() === "无") {
+                    return;
+                }
                 if (!val.minVersion) {
                     delete val.minVersion;
                 }
@@ -87,6 +95,7 @@ function parseDetailPage(tagName, url) {
                         event = {
                             name: eventName,
                             type: eventName,
+                            desc: item.desc,
                             bindable: true,
                             catchable: false
                         };
@@ -103,6 +112,39 @@ function parseDetailPage(tagName, url) {
                 return true;
             });
 
+            //某些element属性存在有限制限制
+            $('strong:contains("有效值")').each((yi, item) => {
+                item = $(item);
+                var text = item.text();
+                text = text.replace('有效值', '').replace("：", '').replace(':', '');
+                var prop = text.trim();
+                var propItem = spec.props.find(p => {
+                    return p.name == prop;
+                });
+
+                if (propItem) {
+                    propItem.values = [];
+                    var tb = item.parent().nextAll('table').first(),
+                        trs = tb.find('tbody>tr');
+                    if (trs && trs.length > 0) {
+                        trs.each((ti, tr) => {
+                            tr = $(tr);
+                            var tds = tr.children('td');
+                            var valItem = {
+                                value: $(tds[0]).text()
+                            };
+                            if (tds.length > 1) {
+                                valItem.desc = $(tds[1]).text();
+                            }
+                            if (tds.length > 2) {
+                                valItem.minVersion = $(tds[2]).text();
+                            }
+                            propItem.values.push(valItem);
+                        });
+                    }
+                }
+            });
+
             data.push(spec);
         });
 
@@ -111,7 +153,7 @@ function parseDetailPage(tagName, url) {
         arr.forEach(item => {
             writeFile(item);
         });
-        return true;
+        return arr;
     }).catch(err => {
         console.error(`error... ${url}\r\n${err}`);
     })
@@ -142,24 +184,32 @@ console.log('taking...');
 loadElementDocUrls().then(urls => {
     console.log('parsed navs.\r\n\r\n');
 
-    var arr = [],
-        arr2 = [];
+    var arr = [];
     for (var tagName in urls) {
         var url = urls[tagName];
         arr.push([tagName, url]);
-        arr2.push([S('wxa-' + tagName).camelize().s, tagName]);
     }
-
-    fs.writeFile(fileWritePath + '/index.js', beautify(tplElementIndex.render({
-        arr: arr2
-    }), beautifyOptions), 'utf8');
     return arr;
 }).then(arr => {
+    var fullElements = [];
     function run() {
         if (arr.length > 0) {
             var item = arr.pop();
-            parseDetailPage(item[0], item[1]).then(data => {
+            parseDetailPage(item[1]).then(data => {
                 run();
+                data.forEach(di => {
+                    fullElements.push(di.name);
+                });
+
+                if (arr.length == 0) {
+                    var arr2 = [];
+                    fullElements.forEach(fi => {
+                        arr2.push([S('wxa-' + fi).camelize().s, fi]);
+                    });
+                    fs.writeFile(fileWritePath + '/index.js', beautify(tplElementIndex.render({
+                        arr: arr2
+                    }), beautifyOptions), 'utf8');
+                }
             });
         }
     }
