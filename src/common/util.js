@@ -48,3 +48,10 @@ export var computeVal = function (type, defaultVal, val) {
     }
     return result;
 }
+
+export var camelize = str => {
+    str = str || "";
+    return str.trim().replace(/(\-|_|\s)+(.)?/g, function (mathc, sep, c) {
+        return (c ? c.toUpperCase() : '');
+    });
+}
