@@ -1,7 +1,7 @@
 import * as util from './util.js';
 import types from './types.js';
-import nativeProps from './native.js';
-import baseProps from './base.js';
+import nativeProps from './native-prop.js';
+import baseProps from './base-prop.js';
 import baseEvents from './base-event.js';
 
 export default spec => {
