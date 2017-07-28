@@ -14,9 +14,8 @@ export var trim = str => {
     return nativeTrim.call(str + "");
 }
 
-export var computeVal = function (type, defaultVal, val) {
-    var typeCode = 'Any',
-        len = arguments.length,
+export var computeVal = function (typeCode, defaultVal, val) {
+    var len = arguments.length,
         result;
     if (len <= 2) {
         return defaultVal;

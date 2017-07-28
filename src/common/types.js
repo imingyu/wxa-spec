@@ -5,5 +5,7 @@ export default {
     Number: 'Number',
     Any: 'Any',
     Array: 'Array',
-    Funtion: 'Funtion'
+    Funtion: 'Funtion',
+    Color: 'String',
+    EventHandle: 'Function'
 }

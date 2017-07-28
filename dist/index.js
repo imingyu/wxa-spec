@@ -17,9 +17,8 @@ var isFalse = function isFalse(val) {
 };
 
 
-var computeVal = function computeVal(type, defaultVal, val) {
-    var typeCode = 'Any',
-        len = arguments.length,
+var computeVal = function computeVal(typeCode, defaultVal, val) {
+    var len = arguments.length,
         result;
     if (len <= 2) {
         return defaultVal;
@@ -65,19 +64,21 @@ var types = {
     Number: 'Number',
     Any: 'Any',
     Array: 'Array',
-    Funtion: 'Funtion'
+    Funtion: 'Funtion',
+    Color: 'String',
+    EventHandle: 'Function'
 };
 
 var nativeProps = [{
-    type: 'String',
+    type: types.String,
     name: 'id',
     desc: '组件的唯一标示'
 }, {
-    type: 'String',
+    type: types.String,
     name: 'class',
     desc: '组件的样式类'
 }, {
-    type: 'String',
+    type: types.String,
     name: 'style',
     desc: '组件的内联样式'
 }];
@@ -86,18 +87,12 @@ var baseProps = [{
     type: types.Boolean,
     name: 'hidden',
     default: false,
-    desc: '组件是否显示',
-    compute: function compute(val) {
-        return computeVal(this.type, this.default, val);
-    }
+    desc: '组件是否显示'
 }, {
     type: types.Any,
     desc: '自定义属性',
     name: function name(val) {
         return val.indexOf('data-') == 0;
-    },
-    compute: function compute(val) {
-        return computeVal(this.type, undefined, val);
     }
 }];
 
@@ -142,6 +137,13 @@ var baseEvents = {
 
 var createElement = (function (spec) {
     spec.props = nativeProps.concat(baseProps).concat(spec.props);
+    spec.props.forEach(function (prop) {
+        if (!prop.compute) {
+            prop.compute = function (val) {
+                return computeVal(this.type, this['default'], val);
+            }.bind(prop);
+        }
+    });
     spec.events = Object.assign({}, baseEvents, spec.events);
     return spec;
 });
